@@ -1,6 +1,7 @@
 import React from 'react';
-import CardsPokedex from '../../components/CardsPokedex/CardsPokedex';
+import CardsPokedex from '../../components/CardsPokedex/CardDetailsPo';
 import { Box } from '@material-ui/system';
+
 
 function PokedexPage() {
   return (

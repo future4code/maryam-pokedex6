@@ -5,7 +5,7 @@ import { CardContent } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
-function CardsHome() {
+function CardsHome(props) {
   return (
     <Card sx={{ maxWidth: 250, boxShadow: 7 }} align="center">
       <CardContent>
