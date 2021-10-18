@@ -7,7 +7,7 @@ import { Typography } from '@material-ui/core';
 
 function CardsPokedex() {
   return (
-    <Card sx={{ maxWidth: 250, border: 2 }}>
+    <Card sx={{ maxWidth: 250, boxShadow: 7 }} align="center">
       <CardContent>
         <Typography sx={{ mb: 1.5 }} color="text.primary">
           nome pokemon
