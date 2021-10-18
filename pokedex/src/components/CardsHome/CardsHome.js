@@ -7,9 +7,9 @@ import { Typography } from '@material-ui/core';
 
 function CardsHome() {
   return (
-    <Card sx={{ maxWidth: 250, border: 2 }}>
+    <Card sx={{ maxWidth: 250, boxShadow: 7 }} align="center">
       <CardContent>
-        <Typography sx={{ mb: 1.5 }} color="text.primary">
+        <Typography sx={{ mb: 1.5 }} color="text.primary" >
           nome pokemon
         </Typography>
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" />

@@ -4,7 +4,7 @@ import { Box } from '@material-ui/system';
 
 function HomePage() {
   return (
-    <Box sx={{ display: 'grid',rowGap: 4, gridTemplateColumns: 'repeat(4, 2fr)',  m: 4, p:2}}>
+    <Box sx={{ display: 'grid', rowGap: 4, gridTemplateColumns: 'repeat(4, 2fr)', m: 4, p: 2 }}>
       <CardsHome />
       <CardsHome />
       <CardsHome />
