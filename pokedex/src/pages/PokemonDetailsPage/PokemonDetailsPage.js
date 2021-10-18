@@ -1,10 +1,9 @@
 import React from 'react';
+import CardsPokeDetails from '../../components/CardsPokeDetails/CardsPokeDetails';
 
 function PokemonDetailsPage() {
   return (
-    <div>
-      Pokemon Details
-    </div>
+    <CardsPokeDetails />
   );
 }
 

@@ -5,7 +5,7 @@ import { CardContent } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
-function CardsHome() {
+function CardsPokedex() {
   return (
     <Card sx={{ maxWidth: 250, border: 2 }}>
       <CardContent>
@@ -15,11 +15,11 @@ function CardsHome() {
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" />
       </CardContent>
       <CardActions>
-        <Button variant="contained" size="small">Adicionar</Button>
+        <Button variant="contained" size="small">Remover</Button>
         <Button variant="contained" size="small">Detalhes</Button>
       </CardActions>
     </Card>
   );
 }
 
-export default CardsHome;
+export default CardsPokedex;
