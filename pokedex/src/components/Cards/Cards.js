@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from '@material-ui/core';
 import { CardActions } from '@material-ui/core';
 import { CardContent } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
+import axios from "axios";
 
 function CardsHome(props) {
+  const [pokemon, setPokemon] = useState()
+
+  useEffect(() => {
+    getPokemonDetails(props.url)
+  }, [])
+
+
+  const getPokemonDetails = (url) => {
+    axios
+      .get(url)
+      .then(response => {
+        setPokemon(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
   return (
-    <Card sx={{ maxWidth: (props.cardWidth), boxShadow: 7 }} align="center">
+    <Card sx={{ maxWidth: (props.cardWidth), boxShadow: 7, bgcolor: (props.bgcolor) }} align="center">
       <CardContent>
         <Typography sx={{ mb: 1.5 }} color="text.primary" >
-          {props.pokeName}
+          {pokemon && pokemon.forms && pokemon.forms.name}
         </Typography>
-        <img src={props.pokeImage} />
+        <img src={pokemon && pokemon.sprites && pokemon.sprites.versions['generation-v']['black-white'].animated.front_default} />
       </CardContent>
       <CardActions>
         <Button
