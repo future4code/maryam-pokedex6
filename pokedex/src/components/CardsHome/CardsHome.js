@@ -15,8 +15,8 @@ function CardsHome(props) {
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" />
       </CardContent>
       <CardActions>
-        <Button variant="contained" size="small">Adicionar</Button>
-        <Button variant="contained" size="small">Detalhes</Button>
+        <Button color="primary" variant="contained" size="small">Adicionar</Button>
+        <Button color="primary" variant="contained" size="small">Detalhes</Button>
       </CardActions>
     </Card>
   );
