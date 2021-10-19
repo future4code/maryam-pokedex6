@@ -9,6 +9,7 @@ import { base_url } from '../../constants/url';
 import { Stack } from '@material-ui/core';
 import { Pagination } from '@material-ui/core';
 import axios from 'axios';
+import PokedexPage from '../PokedexPage/PokedexPage';
 
 function HomePage() {
   const [pokemonsList, setPokemonsList] = useState([]);
@@ -49,6 +50,7 @@ function HomePage() {
     <div>
       <Box sx={{ display: 'grid', rowGap: 4, gridTemplateColumns: 'repeat(4, 2fr)', m: 4, p: 2 }}>
         {pokemonsCards}
+        <button onClick={() => this.props.addPokemon(pokemon)}>Adicionar Pokemon</button>
       </Box>
       <Box display="flex" justifyContent="center" sx={{ m: 5 }}>
         <Stack spacing={2}>
