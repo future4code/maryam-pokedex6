@@ -4,11 +4,10 @@ import { Box } from '@material-ui/system';
 import Cards from "../../components/Cards/Cards";
 import { Stack } from '@material-ui/core';
 import { Pagination } from '@material-ui/core';
+import { useState } from 'react';
 
 function PokedexPage() {
-  state = {
-    pokedex: []
-  }
+  const [pokedex, setPokedex] = useState([])
 
   
   addPokemon = (pokemon) => {
@@ -47,8 +46,8 @@ return (
 //           <Pagination count={3} color="secondary" />
 //         </Stack></Box>
 </div>
-);
-} 
+)
+}
 export default PokedexPage;
  
 //           bgcolor={"#e0e0e0"}
