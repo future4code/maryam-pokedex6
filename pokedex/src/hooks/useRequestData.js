@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { base_url } from "../constants/url";
 
 export const useRequestData = (url) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 
-  useEffect(() => {
+  useEffect((url) => {
     setIsLoading(true);
     axios
-      .get(`${base_url}?limit=20`)
+      .get(url)
       .then(response => {
-        setData(data.results);
+        setData(response.data);
         setIsLoading(false);
       })
       .catch(error => {
