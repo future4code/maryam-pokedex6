@@ -13,9 +13,9 @@ function PokedexPage() {
         pokeImage={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"}
         textBtn1={"remover"}
         textBtn2={"detalhes"}
-        colorBtn1={"secondary"}
+        colorBtn1={"primary"}
         colorBtn2={"secondary"}
-        variantBtn1={"outlined"}
+        variantBtn1={"contained"}
         variantBtn2={"contained"}
       />
       <CardsPokedex />
