@@ -11,29 +11,14 @@ import { Pagination } from '@material-ui/core';
 import axios from 'axios';
 import PokedexPage from '../PokedexPage/PokedexPage';
 
-function HomePage() {
-  const [pokemonsList, setPokemonsList] = useState([]);
-
-  useEffect(() => {
-    getPokemons();
-  }, [])
-
-  const getPokemons = () => {
-    axios
-      .get(`${base_url}pokemon?limit=0&offset=0`)
-      .then(response => {
-        setPokemonsList(response.data.results);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }
+function HomePage(props) {
+  const [pokemonsList, setPokemonsList] = useState(props.pokemonsList);
 
   const pokemonsCards = pokemonsList && pokemonsList.map(
     pokemon => {
       return (
         <Cards
-          url={pokemon.url}
+          name={pokemon.name}
           cardWidth={250}
           textBtn1={"adicionar"}
           textBtn2={"detalhes"}
@@ -41,6 +26,7 @@ function HomePage() {
           colorBtn2={"secondary"}
           variantBtn1={"contained"}
           variantBtn2={"contained"}
+          onClickBtn1={() => props.addPokemon(pokemon.name)}
         />
       )
     }
@@ -50,8 +36,8 @@ function HomePage() {
     <div>
       <Box sx={{ display: 'grid', rowGap: 4, gridTemplateColumns: 'repeat(4, 2fr)', m: 4, p: 2 }}>
         {pokemonsCards}
-        <button onClick={() => this.props.addPokemon(pokemon)}>Adicionar Pokemon</button>
       </Box>
+      {/* PAGINAÇÃO */}
       <Box display="flex" justifyContent="center" sx={{ m: 5 }}>
         <Stack spacing={2}>
           <Pagination count={10} color="secondary" />
