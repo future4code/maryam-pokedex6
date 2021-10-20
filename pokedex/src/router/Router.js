@@ -6,6 +6,7 @@ import PokemonDetailsPage from "../pages/PokemonDetailsPage/PokemonDetailsPage";
 import Header from "../components/Header/Header";
 
 const Router = (props) => {
+  console.log("props router", props)
   return (
     <BrowserRouter>
       <Header />

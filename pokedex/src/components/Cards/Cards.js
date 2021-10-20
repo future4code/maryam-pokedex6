@@ -13,7 +13,7 @@ function CardsHome(props) {
   const history = useHistory();
 
   useEffect(() => {
-    getPokemonDetails(`${base_url}/${props.name}`);
+    getPokemonDetails(`${base_url}pokemon/${props.name}`);
   }, [])
 
   const getPokemonDetails = (url) => {
