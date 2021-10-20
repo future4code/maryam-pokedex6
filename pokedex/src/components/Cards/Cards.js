@@ -16,7 +16,6 @@ function CardsHome(props) {
     getPokemonDetails(`${base_url}/${props.name}`);
   }, [])
 
-
   const getPokemonDetails = (url) => {
     axios
       .get(url)

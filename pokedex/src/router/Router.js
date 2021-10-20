@@ -5,16 +5,22 @@ import PokedexPage from "../pages/PokedexPage/PokedexPage";
 import PokemonDetailsPage from "../pages/PokemonDetailsPage/PokemonDetailsPage";
 import Header from "../components/Header/Header";
 
-const Router = () => {
+const Router = (props) => {
   return (
     <BrowserRouter>
       <Header />
       <Switch>
         <Route exact path={"/"}>
-          <HomePage />
+          <HomePage
+            pokemonsList={props.pokemonsList}
+            addPokemon={props.addPokemon}
+          />
         </Route>
         <Route exact path={"/pokedex"}>
-          <PokedexPage />
+          <PokedexPage
+            pokedexList={props.pokedexList}
+            removePokemon={props.removePokemon}
+          />
         </Route>
         <Route exact path={"/details/:name"}>
           <PokemonDetailsPage />
