@@ -5,12 +5,15 @@ import { CardContent } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import axios from "axios";
+import { useHistory } from 'react-router';
+import { base_url } from '../../constants/url';
 
 function CardsHome(props) {
-  const [pokemon, setPokemon] = useState()
+  const [pokemon, setPokemon] = useState();
+  const history = useHistory();
 
   useEffect(() => {
-    getPokemonDetails(props.url)
+    getPokemonDetails(`${base_url}/${props.name}`);
   }, [])
 
 
@@ -25,11 +28,15 @@ function CardsHome(props) {
       })
   }
 
+  const goToDetailsPage = (name) => {
+    history.push(`/details/${name}`)
+  }
+
   return (
     <Card sx={{ maxWidth: (props.cardWidth), boxShadow: 7, bgcolor: (props.bgcolor) }} align="center">
       <CardContent>
         <Typography sx={{ mb: 1.5 }} color="text.primary" >
-          {pokemon && pokemon.forms && pokemon.forms.name}
+          {pokemon && pokemon.forms && pokemon.forms[0].name}
         </Typography>
         <img src={pokemon && pokemon.sprites && pokemon.sprites.versions['generation-v']['black-white'].animated.front_default} />
       </CardContent>
@@ -37,7 +44,7 @@ function CardsHome(props) {
         <Button
           variant="contained"
           size="small"
-          onClick={props.onClick}
+          onClick={props.onClickBtn1}
           color={props.colorBtn1}
           variant={props.variantBtn1}
         >
@@ -46,7 +53,7 @@ function CardsHome(props) {
         <Button
           variant="contained"
           size="small"
-          onClick={props.onClick}
+          onClick={props.onClickBtn2}
           color={props.colorBtn2}
           variant={props.variantBtn2}
         >

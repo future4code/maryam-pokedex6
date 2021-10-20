@@ -11,7 +11,7 @@ import { Pagination } from '@material-ui/core';
 import axios from 'axios';
 import PokedexPage from '../PokedexPage/PokedexPage';
 
-function HomePage() {
+function HomePage(props) {
   const [pokemonsList, setPokemonsList] = useState([]);
 
   useEffect(() => {
@@ -50,7 +50,7 @@ function HomePage() {
     <div>
       <Box sx={{ display: 'grid', rowGap: 4, gridTemplateColumns: 'repeat(4, 2fr)', m: 4, p: 2 }}>
         {pokemonsCards}
-        <button onClick={() => this.props.addPokemon(pokemon)}>Adicionar Pokemon</button>
+        <button onClick={() => props.addPokemon(pokemon)}>Adicionar Pokemon</button>
       </Box>
       <Box display="flex" justifyContent="center" sx={{ m: 5 }}>
         <Stack spacing={2}>

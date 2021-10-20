@@ -6,72 +6,55 @@ import { Stack } from '@material-ui/core';
 import { Pagination } from '@material-ui/core';
 import { useState } from 'react';
 
-function PokedexPage() {
-  const [pokedex, setPokedex] = useState([])
 
-  
-  addPokemon = (pokemon) => {
-    console.log(pokemon);
-    if (!this.state.pokedex.includes(pokemon)) {
-        this.setState({
-            pokedex: [
-            ...this.state.pokedex,
-            pokemon,
-            ]
-        })
-    } else {
-        pokemon.quantity += 1;
-        this.setState({
-            pokedex: [
-            ... this.state.pokedex,
-            ]
-        })
+function PokedexPage(props) {
+  const [pokedexList, setPokedexList] = useState(props.pokedex)
+
+  const addPokemon = (pokemon) => {
+    if (!pokedexList.includes(pokemon)) {
+      const updatedList = [...pokedexList, pokemon];
+      setPokedexList(updatedList);
     }
-}
+  }
 
-removePokemon = (pokemon) => {
-  const novoPokedex = this.state.pokedex.filter((item) => item !== pokemon)
-  this.setState({
-      pokedex: novoPokedex,
-  })
-}
+  const removePokemon = (pokemon) => {
+    const pokemonIndex = pokedexList.indexOf(pokemon);
+    const updatedList = pokedexList.splice(pokemonIndex, 1);
+    setPokedexList(updatedList);
+  }
 
-return (
-  <div>
-<Box sx={{ display: 'grid', rowGap: 4, gridTemplateColumns: 'repeat(4, 2fr)', m: 4, p: 2 }}>
- {pokedex, removePokemon}
-</Box>
-<Box display="flex" justifyContent="center" sx={{ m: 5 }}>
-//         <Stack spacing={2}>
-//           <Pagination count={3} color="secondary" />
-//         </Stack></Box>
-</div>
-)
+  const pokemonsCards = pokedexList && pokedexList.map(
+    pokemon => {
+      return (
+        <Cards
+          url={pokemon.name}
+          cardWidth={250}
+          textBtn1={"remover"}
+          textBtn2={"detalhes"}
+          onClickBtn1={() => removePokemon(pokemon.name)}
+          onClickBtn2={() => addPokemon(pokemon.name)}
+          colorBtn1={"primary"}
+          colorBtn2={"secondary"}
+          variantBtn1={"contained"}
+          variantBtn2={"contained"}
+
+        />
+      )
+    }
+  )
+
+  return (
+    <div>
+      <Box sx={{ display: 'grid', rowGap: 4, gridTemplateColumns: 'repeat(4, 2fr)', m: 4, p: 2 }}>
+        {pokemonsCards}
+        <button onClick={() => props.addPokemon(pokemon)}>Adicionar Pokemon</button>
+      </Box>
+      <Box display="flex" justifyContent="center" sx={{ m: 5 }}>
+        <Stack spacing={2}>
+          <Pagination count={10} color="secondary" />
+        </Stack>
+      </Box>
+    </div>
+  )
 }
 export default PokedexPage;
- 
-//           bgcolor={"#e0e0e0"}
-//           cardWidth={250}
-//           pokeName={"Charmander"}
-//           pokeImage={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"}
-//           textBtn1={"remover"}
-//           textBtn2={"detalhes"}
-//           colorBtn1={"primary"}
-//           colorBtn2={"secondary"}
-//           variantBtn1={"contained"}
-//           variantBtn2={"contained"}
-//         />
-//         <CardsPokedex />
-//         <CardsPokedex />
-//         <CardsPokedex />
-//         <CardsPokedex />
-//         <CardsPokedex />
-//         <CardsPokedex />
-//         <CardsPokedex />
-//         <CardsPokedex />
-//       </Box>
-//       <Box display="flex" justifyContent="center" sx={{ m: 5 }}>
-//         <Stack spacing={2}>
-//           <Pagination count={3} color="secondary" />
-//         </Stack>
-//      
