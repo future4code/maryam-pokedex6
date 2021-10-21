@@ -1,16 +1,16 @@
 import React from 'react';
-import CardMoves from '../../components/CardsPokeDetails/CardMoves';
-import CardStats from '../../components/CardsPokeDetails/CardStats';
-import CardPokemon from '../../components/CardsPokeDetails/CardPokemon';
 import { Box } from '@material-ui/system';
+import CardDetailsMoves from '../../components/Cards/CardDetailsMoves';
+import CardDetailsPokemon from '../../components/Cards/CardDetailsPokemon';
+import CardDetailsStats from '../../components/Cards/CardDetailsStats';
 
 
 function PokemonDetailsPage() {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'space-around', m: 4, p: 2 }}>
-      <CardPokemon />
-      <CardMoves />
-      <CardStats />
+      <CardDetailsPokemon />
+      <CardDetailsMoves />
+      <CardDetailsStats />
     </Box >
   );
 }

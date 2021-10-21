@@ -28,6 +28,7 @@ function App() {
     if (!pokedexList.includes(pokemon)) {
       const updatedList = [...pokedexList, pokemon];
       setPokedexList(updatedList);
+      console.log("pokedex list", pokedexList)
     }
   }
 

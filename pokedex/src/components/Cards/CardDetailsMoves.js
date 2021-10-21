@@ -3,7 +3,7 @@ import { Card } from '@material-ui/core';
 import { CardContent } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
-function CardMoves() {
+function CardDetailsMoves() {
   return (
     <Card sx={{ minWidth: 300, boxShadow: 7 }} align="center">
       <CardContent>
@@ -22,4 +22,4 @@ function CardMoves() {
   );
 }
 
-export default CardMoves;
+export default CardDetailsMoves;

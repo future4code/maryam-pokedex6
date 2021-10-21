@@ -1,20 +1,16 @@
-import React from 'react';
-import CardsPokedex from '../../components/CardsPokedex/CardDetailsPo';
+import React, { useState } from 'react';
 import { Box } from '@material-ui/system';
 import Cards from "../../components/Cards/Cards";
 import { Stack } from '@material-ui/core';
 import { Pagination } from '@material-ui/core';
-import { useState } from 'react';
-
 
 function PokedexPage(props) {
-  const [pokedexList, setPokedexList] = useState(props.pokedexList)
-
+  const [pokedexList, setPokedexList] = useState(props.pokedexList);
   const pokemonsCards = pokedexList && pokedexList.map(
     pokemon => {
       return (
-        <Cards
-          url={pokemon.name}
+        <Cards key={pokemon.name}
+          name={pokemon}
           cardWidth={250}
           textBtn1={"remover"}
           textBtn2={"detalhes"}

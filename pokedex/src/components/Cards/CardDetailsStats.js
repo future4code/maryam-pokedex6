@@ -3,7 +3,7 @@ import { Card } from '@material-ui/core';
 import { CardContent } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
-function CardStats() {
+function CardDetailsStats() {
   return (
     <Card sx={{ minWidth: 300, boxShadow: 7 }} align="center">
       <CardContent>
@@ -23,4 +23,4 @@ function CardStats() {
   );
 }
 
-export default CardStats;
+export default CardDetailsStats;
