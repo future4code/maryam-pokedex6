@@ -23,7 +23,7 @@ const Router = (props) => {
             removePokemon={props.removePokemon}
           />
         </Route>
-        <Route exact path={"/details"}>
+        <Route exact path={"/details/:name"}>
           <PokemonDetailsPage />
         </Route>
       </Switch>
