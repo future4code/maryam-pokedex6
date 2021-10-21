@@ -5,12 +5,12 @@ import { Stack } from '@material-ui/core';
 import { Pagination } from '@material-ui/core';
 
 function PokedexPage(props) {
-  const [pokedexList, setPokedexList] = useState(props.pokedexList);
-  const pokemonsCards = pokedexList && pokedexList.map(
+  // const [pokedexList, setPokedexList] = useState(props.pokedexList);
+  const pokemonsCards = props.pokedexList && props.pokedexList.map(
     pokemon => {
       return (
         <Cards key={pokemon.name}
-          name={pokemon}
+          pokemon={pokemon}
           cardWidth={250}
           textBtn1={"remover"}
           textBtn2={"detalhes"}
@@ -18,7 +18,7 @@ function PokedexPage(props) {
           colorBtn2={"secondary"}
           variantBtn1={"contained"}
           variantBtn2={"contained"}
-          onClickBtn1={() => props.removePokemon(pokemon.name)}
+          onClickBtn1={() => props.removePokemon(pokemon)}
         />
       )
     }

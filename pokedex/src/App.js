@@ -15,7 +15,7 @@ function App() {
 
   const getPokemons = () => {
     axios
-      .get(`${base_url}pokemon?limit=0&offset=0`)
+      .get(`${base_url}/pokemon?limit=0&offset=0`)
       .then(response => {
         setPokemonsList(response.data.results);
       })
@@ -25,6 +25,7 @@ function App() {
   }
 
   const addPokemon = (pokemon) => {
+    console.log("pokemon no addPokemon", pokemon)
     if (!pokedexList.includes(pokemon)) {
       const updatedList = [...pokedexList, pokemon];
       setPokedexList(updatedList);
@@ -32,10 +33,9 @@ function App() {
     }
   }
 
-  const removePokemon = (pokemon) => {
-    const pokemonIndex = pokedexList.indexOf(pokemon);
-    const updatedList = pokedexList.splice(pokemonIndex, 1);
-    setPokedexList(updatedList);
+  const removePokemon = (pokemonToRemove) => {
+    const newPokedexList = pokedexList.filter(pokemon => pokemon.name !== pokemonToRemove.name);
+    setPokedexList(newPokedexList);
   }
 
   return (
