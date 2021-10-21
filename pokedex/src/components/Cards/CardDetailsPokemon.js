@@ -12,7 +12,7 @@ const PokeImg = styled.img`
   width: 7rem;
 `
 
-function CardPokemon(props) {
+function CardDetailsPokemon(props) {
   return (
     <Card sx={{ minWidth: 300, boxShadow: 7 }} align="center">
       <CardContent>
@@ -31,4 +31,4 @@ function CardPokemon(props) {
   );
 }
 
-export default CardPokemon;
+export default CardDetailsPokemon;

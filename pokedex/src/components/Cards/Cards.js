@@ -13,7 +13,7 @@ function CardsHome(props) {
   const history = useHistory();
 
   useEffect(() => {
-    getPokemonDetails(`${base_url}/${props.name}`);
+    getPokemonDetails(`${base_url}pokemon/${props.name}`);
   }, [])
 
   const getPokemonDetails = (url) => {
@@ -35,9 +35,12 @@ function CardsHome(props) {
     <Card sx={{ maxWidth: (props.cardWidth), boxShadow: 7, bgcolor: (props.bgcolor) }} align="center">
       <CardContent>
         <Typography sx={{ mb: 1.5 }} color="text.primary" >
-          {pokemon && pokemon.forms && pokemon.forms[0].name}
+          {pokemon && pokemon.species && pokemon.species.name}
         </Typography>
-        <img src={pokemon && pokemon.sprites && pokemon.sprites.versions['generation-v']['black-white'].animated.front_default} />
+        <img src={pokemon
+          && pokemon.sprites
+          && pokemon.sprites.versions['generation-v']['black-white'].animated.front_default}
+          alt={pokemon && pokemon.species && pokemon.species.name} />
       </CardContent>
       <CardActions>
         <Button

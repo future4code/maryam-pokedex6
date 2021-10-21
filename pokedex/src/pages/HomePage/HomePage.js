@@ -1,23 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import CardsHome from '../../components/CardsHome/CardsHome';
+import React, { useState } from 'react';
 import { Box } from '@material-ui/system';
-import { Alert } from '@material-ui/core';
-import Loading from '../../components/Loading/Loading';
 import Cards from "../../components/Cards/Cards";
-import { useRequestData } from '../../hooks/useRequestData';
-import { base_url } from '../../constants/url';
 import { Stack } from '@material-ui/core';
 import { Pagination } from '@material-ui/core';
-import axios from 'axios';
-import PokedexPage from '../PokedexPage/PokedexPage';
 
 function HomePage(props) {
   const [pokemonsList, setPokemonsList] = useState(props.pokemonsList);
-
   const pokemonsCards = pokemonsList && pokemonsList.map(
     pokemon => {
       return (
-        <Cards
+        <Cards key={pokemon.name}
           name={pokemon.name}
           cardWidth={250}
           textBtn1={"adicionar"}

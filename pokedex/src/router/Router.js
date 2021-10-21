@@ -6,8 +6,9 @@ import PokemonDetailsPage from "../pages/PokemonDetailsPage/PokemonDetailsPage";
 import Header from "../components/Header/Header";
 
 const Router = (props) => {
+
   return (
-    <BrowserRouter>
+    < BrowserRouter >
       <Header />
       <Switch>
         <Route exact path={"/"}>
@@ -22,11 +23,11 @@ const Router = (props) => {
             removePokemon={props.removePokemon}
           />
         </Route>
-        <Route exact path={"/details/:name"}>
+        <Route exact path={"/details"}>
           <PokemonDetailsPage />
         </Route>
       </Switch>
-    </BrowserRouter>
+    </BrowserRouter >
   )
 }
 
