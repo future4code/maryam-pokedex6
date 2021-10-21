@@ -24,12 +24,10 @@ function App() {
       })
   }
 
-  const addPokemon = (pokemon) => {
-    console.log("pokemon no addPokemon", pokemon)
-    if (!pokedexList.includes(pokemon)) {
-      const updatedList = [...pokedexList, pokemon];
-      setPokedexList(updatedList);
-      console.log("pokedex list", pokedexList)
+  const addPokemon = (pokemonToAdd) => {
+    if (!pokedexList.includes(pokemonToAdd)) {
+      const newPokedexList = [...pokedexList, pokemonToAdd];
+      setPokedexList(newPokedexList);
     }
   }
 
