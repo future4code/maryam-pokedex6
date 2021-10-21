@@ -5,12 +5,11 @@ import { Stack } from '@material-ui/core';
 import { Pagination } from '@material-ui/core';
 
 function HomePage(props) {
-  const [pokemonsList, setPokemonsList] = useState(props.pokemonsList);
-  const pokemonsCards = pokemonsList && pokemonsList.map(
+  const pokemonsCards = props.pokemonsList && props.pokemonsList.map(
     pokemon => {
       return (
         <Cards key={pokemon.name}
-          name={pokemon.name}
+          pokemon={pokemon}
           cardWidth={250}
           textBtn1={"adicionar"}
           textBtn2={"detalhes"}
@@ -18,7 +17,7 @@ function HomePage(props) {
           colorBtn2={"secondary"}
           variantBtn1={"contained"}
           variantBtn2={"contained"}
-          onClickBtn1={() => props.addPokemon(pokemon.name)}
+          onClickBtn1={() => props.addPokemon(pokemon)}
         />
       )
     }
