@@ -5,9 +5,9 @@ import { theme } from './theme';
 import axios from "axios";
 import { base_url } from './constants/url';
 import Paginacao from './components/Paginação/Paginação';
+import { Typography } from '@material-ui/core';
 
 const LIMIT = 2;
-
 
 function App() {
   const [pokemonsList, setPokemonsList] = useState([]);
@@ -37,16 +37,16 @@ function App() {
 
     setPokedexList(newPokedexList)
     setPokemonsList(newPokemonsList)
-  
 
-  // const addPokemon = (pokemonToAdd) => {
-  //   if (!pokedexList.includes(pokemonToAdd)) {
-  //     const newPokedexList = [...pokedexList, pokemonToAdd];
-  //     newPokemonsList.splice(pokemonToAdd, 1)
 
-  //     setPokedexList(newPokedexList);
-  //     setPokemonsList(newPokemonsList)
-  //   }
+    // const addPokemon = (pokemonToAdd) => {
+    //   if (!pokedexList.includes(pokemonToAdd)) {
+    //     const newPokedexList = [...pokedexList, pokemonToAdd];
+    //     newPokemonsList.splice(pokemonToAdd, 1)
+
+    //     setPokedexList(newPokedexList);
+    //     setPokemonsList(newPokemonsList)
+    //   }
 
   }
 

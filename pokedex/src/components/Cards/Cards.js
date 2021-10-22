@@ -32,14 +32,14 @@ function CardsHome(props) {
   }
 
   return (
-    <Card sx={{ maxWidth: (props.cardWidth), boxShadow: 7, bgcolor: (props.bgcolor) }} align="center">
+    <Card sx={{ maxWidth: 250, boxShadow: 7, bgcolor: (props.bgcolor) }} align="center">
       <CardContent>
         <Typography sx={{ mb: 1.5 }} color="text.primary" >
           {pokemon && pokemon.name}
         </Typography>
         <img src={pokemon && pokemon.sprites && pokemon.sprites.front_default} />
       </CardContent>
-      <CardActions>
+      <CardActions sx={{ justifyContent: "center" }}>
         <Button
           variant="contained"
           size="small"

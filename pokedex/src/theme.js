@@ -21,4 +21,13 @@ export const theme = createTheme({
     // Por exemplo, mude de Red 500 para Red 300 ou Red 700.
     tonalOffset: 0.2,
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
 });
