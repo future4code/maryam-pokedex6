@@ -12,7 +12,6 @@ function PokemonDetailsPage() {
   const history = useHistory();
   const params = useParams();
   const [pokemon, setPokemon] = useState();
-  console.log("pokemon detalhes", pokemon)
 
   useEffect(() => {
     getPokemonDetails(`${base_url}/pokemon/${params.name}`);

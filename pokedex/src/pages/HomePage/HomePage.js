@@ -8,8 +8,8 @@ import { Pagination } from '@material-ui/core';
 function HomePage(props) {
   const history = useHistory();
 
-  const goToDetailPage = (name) => {
-    history.push(`/detalhes/${name}`)
+  const goToDetailsPage = (name) => {
+    history.push(`/details/${name}`)
   }
 
   const pokemonsCards = props.pokemonsList && props.pokemonsList
@@ -26,7 +26,7 @@ function HomePage(props) {
             variantBtn1={"contained"}
             variantBtn2={"contained"}
             onClickBtn1={() => props.addPokemon(pokemon)}
-            onClickBtn2={() => goToDetailPage(pokemon.name)}
+            onClickBtn2={() => goToDetailsPage(pokemon.name)}
           />
         )
       }
