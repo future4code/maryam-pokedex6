@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useHistory } from "react-router";
 import { Box } from '@material-ui/system';
 import Cards from "../../components/Cards/Cards";
 import { Stack } from '@material-ui/core';
 import { Pagination } from '@material-ui/core';
 
 function PokedexPage(props) {
-  // const [pokedexList, setPokedexList] = useState(props.pokedexList);
+  const history = useHistory();
+
+  const goToDetailsPage = (name) => {
+    history.push(`/details/${name}`)
+  }
+
   const pokemonsCards = props.pokedexList && props.pokedexList.map(
     pokemon => {
       return (
@@ -19,6 +25,7 @@ function PokedexPage(props) {
           variantBtn1={"contained"}
           variantBtn2={"contained"}
           onClickBtn1={() => props.removePokemon(pokemon)}
+          onClickBtn2={() => goToDetailsPage(pokemon.name)}
         />
       )
     }
