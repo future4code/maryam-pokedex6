@@ -4,6 +4,7 @@ import { Box } from '@material-ui/system';
 import Cards from "../../components/Cards/Cards";
 import { Stack } from '@material-ui/core';
 import { Pagination } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 function HomePage(props) {
   const history = useHistory();
@@ -12,7 +13,7 @@ function HomePage(props) {
     history.push(`/details/${name}`)
   }
 
-  
+
 
   const pokemonsCards = props.pokemonsList && props.pokemonsList
     .map(
@@ -20,7 +21,6 @@ function HomePage(props) {
         return (
           <Cards key={pokemon.name}
             pokemon={pokemon}
-            cardWidth={250}
             textBtn1={"adicionar"}
             textBtn2={"detalhes"}
             colorBtn1={"secondary"}
@@ -36,6 +36,9 @@ function HomePage(props) {
 
   return (
     <div>
+      <Typography variant="h5" color="secondary" sx={{ mx: 7, mt: 4 }}>
+        <strong>Capture seus pokemons!</strong>
+      </Typography>
       <Box sx={{ display: 'grid', rowGap: 4, gridTemplateColumns: 'repeat(4, 2fr)', m: 4, p: 2 }}>
         {pokemonsCards}
       </Box>

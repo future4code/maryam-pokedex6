@@ -4,6 +4,7 @@ import { Box } from '@material-ui/system';
 import Cards from "../../components/Cards/Cards";
 import { Stack } from '@material-ui/core';
 import { Pagination } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 function PokedexPage(props) {
   const history = useHistory();
@@ -15,9 +16,8 @@ function PokedexPage(props) {
   const pokemonsCards = props.pokedexList && props.pokedexList.map(
     pokemon => {
       return (
-        <Cards key={pokemon.name} 
+        <Cards key={pokemon.name}
           pokemon={pokemon}
-          cardWidth={250}
           textBtn1={"remover"}
           textBtn2={"detalhes"}
           colorBtn1={"primary"}
@@ -33,6 +33,9 @@ function PokedexPage(props) {
 
   return (
     <div>
+      <Typography variant="h5" color="secondary" sx={{ mx: 7, mt: 4 }}>
+        <strong>Sua pokedex</strong>
+      </Typography>
       <Box sx={{ display: 'grid', rowGap: 4, gridTemplateColumns: 'repeat(4, 2fr)', m: 4, p: 2 }}>
         {pokemonsCards}
       </Box>
