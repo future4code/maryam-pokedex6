@@ -34,7 +34,7 @@ function PokemonDetailsPage() {
 
   return (
     <div>
-      <Box sx={{ display: 'flex', justifyContent: 'space-around', m: 4, p: 2 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-around', m: 1, p: 2 }}>
         <CardDetailsPokemon pokemon={pokemon} />
         <CardDetailsStats pokemon={pokemon} />
         <CardDetailsMoves pokemon={pokemon} />
