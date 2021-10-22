@@ -12,6 +12,8 @@ function HomePage(props) {
     history.push(`/details/${name}`)
   }
 
+  
+
   const pokemonsCards = props.pokemonsList && props.pokemonsList
     .map(
       pokemon => {

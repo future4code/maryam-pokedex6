@@ -15,7 +15,7 @@ function PokedexPage(props) {
   const pokemonsCards = props.pokedexList && props.pokedexList.map(
     pokemon => {
       return (
-        <Cards key={pokemon.name}
+        <Cards key={pokemon.name} 
           pokemon={pokemon}
           cardWidth={250}
           textBtn1={"remover"}
