@@ -12,7 +12,6 @@ function PokemonDetailsPage() {
   const history = useHistory();
   const params = useParams();
   const [pokemon, setPokemon] = useState();
-  console.log("pokemon detalhes", pokemon)
 
   useEffect(() => {
     getPokemonDetails(`${base_url}/pokemon/${params.name}`);
@@ -34,12 +33,16 @@ function PokemonDetailsPage() {
   }
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'space-around', m: 4, p: 2 }}>
-      <CardDetailsPokemon pokemon={pokemon} />
-      <CardDetailsMoves />
-      <CardDetailsStats />
-      <Button onClick={() => goBack()}>Voltar</Button>
-    </Box >
+    <div>
+      <Box sx={{ display: 'flex', justifyContent: 'space-around', m: 1, p: 2 }}>
+        <CardDetailsPokemon pokemon={pokemon} />
+        <CardDetailsStats pokemon={pokemon} />
+        <CardDetailsMoves pokemon={pokemon} />
+      </Box >
+      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4, p: 2 }}>
+        <Button variant="contained" color="secondary" onClick={() => goBack()}>Voltar</Button>
+      </Box>
+    </div >
   );
 }
 

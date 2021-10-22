@@ -10,9 +10,12 @@ import styled from "styled-components"
 
 function CardDetailsPokemon(props) {
   const pokemonTypes = props.pokemon && props.pokemon.types
-    .map((type, index) => {
+    .map(type => {
+      console.log("pokemon type", type)
       return (
-        <li key={index}>{type.name}</li>
+        <Typography variant="body2" key={type.type.name}>
+          {type.type.name}
+        </Typography>
       )
     })
 
@@ -27,9 +30,8 @@ function CardDetailsPokemon(props) {
             && props.pokemon.sprites
             && props.pokemon.sprites.front_default} />
         </Box>
-        <Typography variant="body2" color="text.primary">
-          <strong>tipo:</strong> <ul>{pokemonTypes}</ul>
-        </Typography>
+        <strong>tipo:</strong>
+        {pokemonTypes}
       </CardContent>
     </Card>
   );
