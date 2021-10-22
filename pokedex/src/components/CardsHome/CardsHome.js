@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card } from '@material-ui/core';
 import { CardActions } from '@material-ui/core';
 import { CardContent } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import { usePokedex } from '../../pages/PokedexPage/PokedexPage';
+import { GlobalContext } from '../../App';
+import CardPokemon from '../CardsPokeDetails/CardPokemon';
 
 function CardsHome(props) {
   
-  const {addPokemon} = usePokedex ()
+  const {addPokemon} = useContext (GlobalContext)
 
   return (
     <Card sx={{ maxWidth: 250, boxShadow: 7 }} align="center">

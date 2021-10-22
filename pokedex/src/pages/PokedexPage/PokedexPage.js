@@ -5,23 +5,20 @@ import Cards from "../../components/Cards/Cards";
 import { Stack } from '@material-ui/core';
 import { Pagination } from '@material-ui/core';
 import { createContext, useState, useContext, useEffect} from 'react';
+import { GlobalContext } from '../../App';
+
 
 
 const pokemonContext = createContext ()
 
-export default function PokedexPage({children}) {
-  const [pokedex, setPokedex] = useState([])
+export default function PokedexPage({}) {
+ 
+  const {pokedex, setPokedex} = useContext (GlobalContext)
 
   useEffect (() => {
     console.log(pokedex)
   }, [pokedex])
 
-  function addPokemon (pokemon) {
-    const newpokedex = pokedex 
-    newpokedex.push(pokemon)
-
-    setPokedex(newpokedex)
-  }
 
 //   removePokemon = (index) => {
 //     const newPokedex = pokedex
@@ -31,18 +28,9 @@ export default function PokedexPage({children}) {
 //     setPokedex([...newPokedex])
 // }
 
-  const pagePokedex = {
-    addPokemon,
-    pokedex,
-   
-  }
-
   return (
     <div>
       <Box sx={{ display: 'grid', rowGap: 4, gridTemplateColumns: 'repeat(4, 2fr)', m: 4, p: 2 }}>
-<pokemonContext.Provider value={pagePokedex}>
-  {children}
-</pokemonContext.Provider>
 </Box>
   <Box display="flex" justifyContent="center" sx={{ m: 5 }}>
   //         <Stack spacing={2}>
@@ -52,18 +40,6 @@ export default function PokedexPage({children}) {
   )
 }
 
-export  function usePokedex () {
-const context = useContext(pokemonContext)
-const {
-    pokedex,
-    addPokemon,
-  } = context
-
-  return {
-    pokedex,
-    addPokemon,
-  }
-}
 
 
 // // )
@@ -101,22 +77,3 @@ const {
 //         </Stack>
 //       */}
 
-      
-// {/* //     if (!this.state.pokedex.includes(pokemon)) { */}
-// {/* //         this.setState({ */}
-// //             pokedex: [
-// //             ...this.state.pokedex,
-// //             pokemon,
-// //             ]
-// //         })
-// //     } else {
-// //         pokemon.quantity += 1;
-// //         this.setState({
-// //             pokedex: [
-// //             ... this.state.pokedex,
-// //             ]
-// //         })
-// //     }
-// // }
-
-// // 
