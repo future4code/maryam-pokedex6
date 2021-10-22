@@ -10,14 +10,6 @@ function CardDetailsStats() {
         <Typography variant="h5" color="text.primary" >
           Poderes
         </Typography>
-        <Typography variant="body2">
-          <p>hp: 45</p>
-          <p>attack: 49</p>
-          <p>defense: 49</p>
-          <p>special-attack: 65</p>
-          <p>special-defense: 65</p>
-          <p>speed: 45</p>
-        </Typography>
       </CardContent>
     </Card>
   );

@@ -13,7 +13,9 @@ function CardDetailsPokemon(props) {
     .map(type => {
       console.log("pokemon type", type)
       return (
-        <p key={type.type.name}>{type.type.name}</p>
+        <Typography variant="body2" key={type.type.name}>
+          {type.type.name}
+        </Typography>
       )
     })
 
