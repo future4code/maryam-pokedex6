@@ -1,16 +1,17 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Marina Ramminger Pereira
+- Milena Lara Reis Ferreira 
+- Carlos Daniel Oliveira Nunes
 
-Link do Surge: www.link.com.br
+Link do Surge: https://rigid-sand.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+- Adicionar pokemons na pokedex
+- Remover pokemons da pokedex
+- Ver detalhes de cada pokemon
+- Navegação entre páginas
 
 O que não funciona: 
-- Item 3
-- Item 4
+- Paginação
