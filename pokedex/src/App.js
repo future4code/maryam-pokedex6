@@ -4,25 +4,28 @@ import { ThemeProvider } from '@material-ui/system';
 import { theme } from './theme';
 import axios from "axios";
 import { base_url } from './constants/url';
-import Paginacao from './components/Paginação/Paginação';
-import { Typography } from '@material-ui/core';
+import Loading from './components/Loading/Loading';
 
 function App() {
   const [pokemonsList, setPokemonsList] = useState([]);
-  const [pokedexList, setPokedexList] = useState([])
+  const [pokedexList, setPokedexList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getPokemons();
   }, [])
 
   const getPokemons = () => {
+    setIsLoading(true);
     axios
       .get(`${base_url}/pokemon?limit=0&offset=0`)
       .then(response => {
         setPokemonsList(response.data.results);
+        setIsLoading(false);
       })
       .catch(error => {
         console.log(error);
+        setIsLoading(false);
       })
   }
 
@@ -55,6 +58,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      {isLoading && <Loading isLoading={isLoading} />}
       <Router
         pokemonsList={pokemonsList}
         pokedexList={pokedexList}
