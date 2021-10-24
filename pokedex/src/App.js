@@ -7,12 +7,9 @@ import { base_url } from './constants/url';
 import Paginacao from './components/Paginação/Paginação';
 import { Typography } from '@material-ui/core';
 
-const LIMIT = 2;
-
 function App() {
   const [pokemonsList, setPokemonsList] = useState([]);
   const [pokedexList, setPokedexList] = useState([])
-  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
     getPokemons();
@@ -20,7 +17,7 @@ function App() {
 
   const getPokemons = () => {
     axios
-      .get(`${base_url}/pokemon?limit=${LIMIT}0&offset=0`)
+      .get(`${base_url}/pokemon?limit=0&offset=0`)
       .then(response => {
         setPokemonsList(response.data.results);
       })
@@ -30,38 +27,30 @@ function App() {
   }
 
   const addPokemon = (pokemonToAdd) => {
-    const pokeIndex = pokemonsList.findIndex((item) => item.name === pokemonToAdd.name)
-    const newPokemonsList = [...pokemonsList]
-    newPokemonsList.splice(pokeIndex, 1)
-    const newPokedexList = [...pokedexList, pokemonToAdd]
+    console.log(pokemonToAdd);
+    const pokeIndex = pokemonsList.findIndex((item) => item.name === pokemonToAdd.name);
+    const newPokemonsList = [...pokemonsList];
+    newPokemonsList.splice(pokeIndex, 1);
+    const orderedPokemons = newPokemonsList.sort((a, b) => { return a.id - b.id });
 
-    setPokedexList(newPokedexList)
-    setPokemonsList(newPokemonsList)
+    const newPokedexList = [...pokedexList, pokemonToAdd];
+    const orderedPokedex = newPokedexList.sort((a, b) => { return a.id - b.id });
 
-
-    // const addPokemon = (pokemonToAdd) => {
-    //   if (!pokedexList.includes(pokemonToAdd)) {
-    //     const newPokedexList = [...pokedexList, pokemonToAdd];
-    //     newPokemonsList.splice(pokemonToAdd, 1)
-
-    //     setPokedexList(newPokedexList);
-    //     setPokemonsList(newPokemonsList)
-    //   }
-
+    setPokedexList(orderedPokedex);
+    setPokemonsList(orderedPokemons);
   }
 
   const removePokemon = (pokemonToRemove) => {
-    const pokeIndex = pokemonsList.findIndex((item) => item.name === pokemonToRemove.name)
-    const newPokedexList = [...pokedexList]
-    newPokedexList.splice(pokeIndex, 1)
+    const pokeIndex = pokedexList.findIndex((item) => item.name === pokemonToRemove.name);
+    const newPokedexList = [...pokedexList];
+    newPokedexList.splice(pokeIndex, 1);
+    const orderedPokedex = newPokedexList.sort((a, b) => { return a.id - b.id });
 
-    const newPokemonsList = [...pokemonsList, pokemonToRemove]
+    const newPokemonsList = [...pokemonsList, pokemonToRemove];
+    const orderedPokemons = newPokemonsList.sort((a, b) => { return a.id - b.id });
 
-    setPokedexList(newPokedexList)
-    setPokemonsList(newPokemonsList)
-
-    // const newPokedexList = pokedexList.filter(pokemon => pokemon.name !== pokemonToRemove.name);
-    // setPokedexList(newPokedexList);
+    setPokedexList(orderedPokedex);
+    setPokemonsList(orderedPokemons);
   }
 
   return (
