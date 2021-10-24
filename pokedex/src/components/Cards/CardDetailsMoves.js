@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 
 function CardDetailsMoves(props) {
 
-  const numberOfMovesToDisplay = 10;
+  const numberOfMovesToDisplay = 7;
   const movesList = [];
   if (props.pokemon && props.pokemon.moves) {
     for (let i = 0; i < numberOfMovesToDisplay; i++) {

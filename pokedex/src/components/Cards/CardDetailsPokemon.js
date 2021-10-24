@@ -5,7 +5,6 @@ import { CardContent } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import { Box } from '@material-ui/system';
-import styled from "styled-components"
 
 
 function CardDetailsPokemon(props) {
@@ -25,10 +24,19 @@ function CardDetailsPokemon(props) {
         <Typography variant="h5" color="text.primary">
           {props.pokemon && props.pokemon.name}
         </Typography>
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          aligmItems: "center",
+          width: 100,
+          height: 200
+        }}>
           <img src={props.pokemon
             && props.pokemon.sprites
             && props.pokemon.sprites.front_default} />
+          <img src={props.pokemon
+            && props.pokemon.sprites
+            && props.pokemon.sprites.back_default} />
         </Box>
         <strong>tipo:</strong>
         {pokemonTypes}
