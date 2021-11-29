@@ -1,17 +1,25 @@
 # POKEDEX
 
-Nome dos integrantes: 
-- Marina Ramminger Pereira
+## Sobre
+
+Site que simula a funcionalidade de uma Pokedex: no jogo de Pokemon, os usuários podem escolher os pokemons com que podem jogar - esses pokemons são armazenados na Pokedex.
+
+## Integrantes: 
 - Milena Lara Reis Ferreira 
+- Marina Ramminger Pereira
 - Carlos Daniel Oliveira Nunes
 
-Link do Surge: https://rigid-sand.surge.sh/
+## Link do Surge
+https://rigid-sand.surge.sh/
 
-O que funciona:
+## Funcionalidades implementadas
 - Adicionar pokemons na pokedex
 - Remover pokemons da pokedex
 - Ver detalhes de cada pokemon
 - Navegação entre páginas
 
-O que não funciona: 
-- Paginação
+## Tecnologias
+- React JS
+- Styled-components
+- React Router
+- Material UI
